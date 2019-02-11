@@ -7,55 +7,47 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link rel="stylesheet" href="../findthecode.css">
    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
-	<script type="text/javascript" src="../libs/wScratchPad.min.js"></script>
-	<script>
-	$(".indication").wScratchPad({
-  size        : 5,          // The size of the brush/scratch.
-  bg          : '#cacaca',  // Background (image path or hex color).
-  fg          : '#6699ff',  // Foreground (image path or hex color).
-  realtime    : true,       // Calculates percentage in realitime.
-  scratchDown : null,       // Set scratchDown callback.
-  scratchUp   : null,       // Set scratchUp callback.
-  scratchMove : null,       // Set scratcMove callback.
-  cursor      : 'crosshair' // Set cursor.
-});
-	</script>
+	<script type="text/javascript" src="../findthecode.js"></script>
+
     <title>Find the code! PARIS#1 solution</title>
   </head>
   <body>
-<br/>
+	<input type="hidden" id="solution" value="bravo"/>
 	<div class="container">
-		<div class="row">
+		<div class="row top-buffer">
 			<div class="col-sm">
 				<div class="jumbotron">
 					  <h1 class="display-4">PARIS#1</h1>
 					  <p class="lead">Here you will find some indications to solve this game, or you can also check the solution</p>
-
+					<a href="../index.html" class="btn btn-primary" data-dismiss="modal">&lt; Go back to the list of games</a>
 				</div>
 			</div>
 		</div>
-	  <div class="row">
+	  <div class="row top-buffer">
 		<div class="col-md-4">
 		  <div class="card" >
-			  <img src="g1013.png" class="card-img-top"  >
+			  <img id="indication" src="g1013.png" class="card-img-top">
 			  <div class="card-body" class="indication">
 				<h5 class="card-title">Indication #1</h5>
 				<p class="card-text"></p>
+				<a href="#" class="btn btn-primary indication" replacement="cards.png">Show</a>
 			  </div>
 			</div>
 		</div>
 		<div class="col-md-4">
 		  <div class="card" >
-			  <img src="g1013.png" class="card-img-top" >
+			  <img src="g1013.png" class="card-img-top">
 			  <div class="card-body">
 				<h5 class="card-title">Indication #2</h5>
 				<p class="card-text"></p>
+				<a href="#" class="btn btn-primary indication" replacement="cards.png">Show</a>
 			  </div>
 			</div>
 		</div>
@@ -65,23 +57,85 @@
 			  <div class="card-body">
 				<h5 class="card-title">Indication #3</h5>
 				<p class="card-text"></p>
+				<a href="#" class="btn btn-primary indication" replacement="cards.png">Show</a>
 			  </div>
 			</div>
 		</div>
 	  </div>
-	  <br/>
-	  <div class="row">
-		  <div class="col-md-12">
+
+	  <div class="row top-buffer">
+		  <div class="col-md-8">
 		  <div class="card" >
 			  <div class="card-body">
-				<h5 class="card-title">Test your solution</h5>
-				<a href="#" class="card-link">Test</a>
+				<h5 class="card-title">Test your code</h5>
+				<form>
+				  <div class="form-group">
+					<input type="text" class="form-control" id="my-code" aria-describedby="My code" placeholder="My code">
+				  </div>
+				 </form>
+				<a id="test-the-code" href="#" class="btn btn-primary">Test</a>
+			  </div>
+			</div>
+		  </div>
+		  <div class="col-md-4">
+		  <div class="card border-warning" >
+			  <div class="card-body">
+				<h5 class="card-title">Reveal the code</h5>
+				<p class="card-text">This is going to spoil you the game</p>
+				<a href="#" id="reveal-the-code" class="btn btn-warning">I'm sure</a>
 			  </div>
 			</div>
 		  </div>
 	  </div>
-	  <br/>
-	</div
+	  
+	  <div class="row top-buffer"></div>
 
+	</div>
+
+	<div class="modal" tabindex="-1" role="dialog" id="verification-popup">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title">Code verification</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body success">
+			<p>Woohoo ! You found the right code !</p>
+			<p>Congratulations!</p>
+		  </div>
+		  <div class="modal-body failure">
+			<p>I'm sorry, but this is not the good code</p>
+			<p>But i'm sure you will find it soon :)</p>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+	<div class="modal" tabindex="-1" role="dialog" id="reveal-popup">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title">The code</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  
+		  <div class="modal-body">
+			<p>The code is:</p>
+			<p id="put-the-code-here"></p>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
    </body>
 </html>
