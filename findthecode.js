@@ -22,5 +22,6 @@ $( document ).ready(function() {
 	
 	$(".indication").click(function(){
 		$(this).parent().parent().find("img").attr("src",$(this).attr("replacement"));
+				$(this).hide();
 	})
 });
