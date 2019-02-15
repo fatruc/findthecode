@@ -38,6 +38,7 @@ $( document ).ready(function() {
 		async: true,
 		callback: function() { 
 			$(".i18n").each(function(){
+				window.alert($(this).attr("i18n"));
 				$(this).text($.i18n.prop($(this).attr("i18n"))); 
 			}) 
 			}
