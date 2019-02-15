@@ -35,7 +35,6 @@ $( document ).ready(function() {
 		path:'bundle/',
 		mode:'both',
   		name: 'Messages',
-		async: true,		
   		callback: function(){ alert( org.somekey ); }
 	});
 });
