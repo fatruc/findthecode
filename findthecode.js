@@ -24,4 +24,18 @@ $( document ).ready(function() {
 		$(this).parent().parent().find("img").attr("src",$(this).attr("replacement"));
 				$(this).hide();
 	})
+	
+	$(".language").click(function(){
+
+		console.log("change language")
+		$("#selected-language").attr("src",$(this).attr("id")+".png");
+	});
+	
+	jQuery.i18n.properties({
+		path:'bundle/',
+		mode:'both',
+  		name: 'Messages',
+		async: true,		
+  		callback: function(){ alert( org.somekey ); }
+	});
 });
