@@ -35,6 +35,11 @@ $( document ).ready(function() {
 		path:'bundle/',
 		mode:'both',
   		name: 'Messages',
-  		callback: function(){ alert( org.somekey ); }
+		async: true,
+		callback: function() { 
+			$("i18n").each(function(){
+				$(this).text($.i18n.prop($(this).attr("i18n"))); 
+			}) 
+			}
 	});
 });
