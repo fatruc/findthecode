@@ -14,9 +14,7 @@ $( document ).ready(function() {
     $("#test-the-code").click(function(){
 		var mycode = $("#my-code").val();
 		var solution = $("#solution").val();
-		
-			console.log(solution);
-			console.log(mycode.toLowerCase().hashCode());
+
 			
 		if(solution==mycode.toLowerCase().hashCode()){
 			$(".success").show();
@@ -41,8 +39,6 @@ $( document ).ready(function() {
 	})
 	
 	$(".language").click(function(){
-
-		console.log("change language")
 		$("#selected-language").attr("src",$(this).attr("id")+".png");
 	});
 	
@@ -53,8 +49,6 @@ $( document ).ready(function() {
 		async: true,
 		callback: function() { 
 			$(".i18n").each(function(){
-				
-				window.alert($(this).attr("i18n"));
 				$(this).text($.i18n.prop($(this).attr("i18n"))); 
 			}) 
 			}
