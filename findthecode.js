@@ -39,13 +39,45 @@ $( document ).ready(function() {
 	})
 	
 	$(".language").click(function(){
-		$("#selected-language").attr("src",$(this).attr("id")+".png");
+		var language = $(this).attr("id");
+		console.log("click language : "+language);
+		sessionStorage.setItem('language', language);
+		changeLanguage(language);
 	});
 	
-	jQuery.i18n.properties({
+
+
+	var defaultLanguage = function(){
+		var language = navigator.language || navigator.userLanguage; 
+		language=language.split('-')[0];
+		return language;
+	}
+	
+	var initLanguage = function(){
+		var language = sessionStorage.getItem("language");
+		console.log("session language: "+language);
+		if(!language){
+			language = defaultLanguage();
+			console.log("browser language: "+language);
+			sessionStorage.setItem('language', language);
+		}
+		changeLanguage(language);
+		
+	}
+	
+
+	
+	var changeLanguage = function(language){
+		
+		console.log("change language to: "+language);
+		
+		$("#selected-language").attr("src",language+".png");
+		
+		jQuery.i18n.properties({
 		path:'bundle/',
 		mode:'both',
   		name: 'Messages',
+		language: language, 
 		async: true,
 		callback: function() { 
 			$(".i18n").each(function(){
@@ -53,4 +85,11 @@ $( document ).ready(function() {
 			}) 
 			}
 	});
+	}
+	
+	initLanguage();
+	
+
+	
+	
 });
