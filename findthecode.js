@@ -80,7 +80,7 @@ $( document ).ready(function() {
 		language: language, 
 		async: true,
 		callback: function() { 
-			$(".i18n").each(function(){
+			$("[i18n]").each(function(){
 				$(this).text($.i18n.prop($(this).attr("i18n"))); 
 			}) 
 			}
