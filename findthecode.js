@@ -12,7 +12,7 @@ $( document ).ready(function() {
 	
 	
     $("#test-the-code").click(function(){
-		var mycode = $("#my-code").val();
+		/*var mycode = $("#my-code").val();
 		var solution = $("#solution").val();
 
 			
@@ -22,7 +22,12 @@ $( document ).ready(function() {
 		} else {
 			$(".success").hide();
 			$(".failure").show();
-		}
+		}*/
+		var mycode = $("#my-code").val().toLowerCase().hashCode();
+		$('.modal').on('shown.bs.modal', function() {
+			$(this).find('iframe').attr('src','./'+mycode+".html");
+		}) 
+				
 		
 		$('#verification-popup').modal();
 	});
