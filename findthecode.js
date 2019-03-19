@@ -25,7 +25,7 @@ $( document ).ready(function() {
 		}*/
 		var mycode = $("#my-code").val().toLowerCase().hashCode();
 		$('.modal').on('shown.bs.modal', function() {
-			$(this).find('iframe').attr('src','./'+mycode+".html");
+			$(this).find('iframe').attr('src','./codes/'+mycode+".html");
 		}) 
 				
 		

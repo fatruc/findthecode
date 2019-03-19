@@ -27,95 +27,145 @@
 	
 
 	
-    <title>Find the code! Home Page</title>
+    <title>Find the code</title>
   </head>
   <body>
 
 	<nav class="navbar navbar-dark bg-dark">
-	  <span class="navbar-brand mb-0 h1 i18n" i18n="home.nav.title">Find the code !</span>
+		<a class="navbar-brand i18n" href="#" i18n="home.nav.title">Find the code !</a>
+		
+
 	
-	<div class="dropdown form-inline my-2 my-lg-0" id="language">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <img src="fr.png" id="selected-language"/>
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-	<a class="dropdown-item language" id="en"><img src="en.png"/></a>
-  <a class="dropdown-item language" id="fr"><img  src="fr.png"/></a>
-
-  </div>
-</div>
-	
-
-	</nav>
-	<div class="container">
-	<div class="row">
-	<div class="col-md-12">
-	<div class="alert alert-warning top-buffer  i18n" role="alert" i18n="home.warning.data.dummy">
-	  All data on this page is temporary and only serves to illustrate how this website works. It will be updated just before delivery.
-	</div>
-	</div>
-	</div>
-		  <div class="row">
-		  <div class="col-md-12">
-
-
-				<div class="card top-buffer" >
-					<div class="card-header" id="headingOne">
-					      <h2 class="mb-0">
-							<button class="btn  btn-primary i18n" type="button" data-toggle="collapse" data-target="#collapseOne" role="button" aria-expanded="false" aria-controls="collapseOne" i18n="home.how.to.play.button">
-							  How to play ?
-							</button>
-						  </h2>
-					</div>
-					<div id="collapseOne" class="collapse">
-						<div class="card-body">
-							<p class="card-text" i18n="home.how.to.play.line1">Take out the 9 cards of the game and the coded solution of the zip bag.</p>
-							<p class="card-text" i18n="home.how.to.play.line2">Find how to use the playing cards to find the secret code.</p>
-							<p class="card-text" i18n="home.how.to.play.line3">Can not find how to use the game cards? You can try to reveal an indication on the website. Reveal them in order.</p>
-							<p class="card-text" i18n="home.how.to.play.line4">You think you found? You can use the website to test your code without revealing the solution.</p>
-							<p class="card-text" i18n="home.how.to.play.line5">Are you sure you found? Use the magnifying glass to discover the hidden solution on the coded card. Alternatively, you can also reveal the good code on the website.</p>
-							<p class="card-text" i18n="home.how.to.play.line6">Did you find the good code? Congratulations! You have won!</p>
-							<p class="card-text" i18n="home.how.to.play.line7">Did not find the good code? Keep trying !</p>
-					  </div>
-				  </div>
+		<div class="form-inline">
+			<button class="btn btn-secondary  m-2" type="button" id="dropdownMenuButton" data-toggle="modal" data-target="#modal-how-to-play" i18n="home.how.to.play.button">
+				How to play ?
+			</button>
+			<button class="btn btn-secondary  m-2" type="button" id="dropdownMenuButton" data-toggle="modal" data-target="#modal-website-secret">
+				Website secret ?
+			</button>
+			<div class="dropdown m-2" id="language">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<img src="fr.png" id="selected-language"/>
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<a class="dropdown-item language" id="en"><img src="en.png"/></a>
+					<a class="dropdown-item language" id="fr"><img  src="fr.png"/></a>
 				</div>
-
-		  </div>
-	  </div>
-	  <div class="row">
-		<div class="col-md-4">
-		  <div class="card  top-buffer" >
-			  <img src="paris_1/g1013.png" class="card-img-top" alt="PARIS#1">
-			  <div class="card-body">
-				<h5 class="card-title"></h5>
-				<p class="card-text"></p>
-				<a href="paris_1/index.html" class="btn btn-primary" i18n="home.button.go.to.solution" >Go to solution</a>
-			  </div>
+			</div>
+			<div class="dropdown m-2" id="language">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					?
+				</button>
+				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+					<h5 class="dropdown-header">Find the code v0.2</h5>
+					<div class="dropdown-divider"></div>
+					<h5 class="dropdown-header">My other websites</h5>
+					<a class="dropdown-item" href="http://fatruc.github.io/zc_card_generator/" target="_blank">Zombicide equipment card generator</a>
+				</div>
 			</div>
 		</div>
+	</nav>
+	
+	<div class="container">
+	<div class="row">
 
-	  </div>
+	</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card top-buffer text-white bg-secondary" >
+
+				<div class="card-body">
+					<h5 class="card-title">Did you find a code? Test it here !</h5>
+					<form>
+					  <div class="form-group">
+						<input type="text" class="form-control" id="my-code" aria-describedby="My code" placeholder="My code">
+					  </div>
+					 </form>
+					<button  id="test-the-code"  class="btn btn-primary">Test</button>
+				  </div>
+				  <div class="card-footer">
+					... or choose below the game for which you want to get some help
+				  </div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="card  top-buffer text-right" >
+					<a href="paris_1/index.html" ><img src="paris_1/g1013.png" class="card-img-top" alt="PARIS#1"></a>
+				</div>
+			</div>
+		</div>
 	</div>
 	
-	<div class="modal" tabindex="-1" role="dialog" id="game-not-available">
+	<!-- how to play -->
+	<div class="modal fade" id="modal-how-to-play" tabindex="-1" role="dialog" aria-labelledby="modalHowToPlay" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
 		<div class="modal-content">
 		  <div class="modal-header">
-			<h5 class="modal-title" i18n="homme.error.game.not.available.title">Not available yet</h5>
+			<h5 class="modal-title  i18n" id="exampleModalLabel"  i18n="home.how.to.play.button">How to play</h5>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			  <span aria-hidden="true">&times;</span>
 			</button>
 		  </div>
-		  <div class="modal-body" i18n="homme.error.game.not.available.text">
-			<p>I'm sorry but this game is not available yet.</p>
+		  <div class="modal-body">
+			<p class="card-text" i18n="home.how.to.play.line1">Take out the 9 cards of the game and the coded solution of the zip bag.</p>
+			<p class="card-text" i18n="home.how.to.play.line2">Find how to use the playing cards to find the secret code.</p>
+			<p class="card-text" i18n="home.how.to.play.line3">Can not find how to use the game cards? You can try to reveal an indication on the website. Reveal them in order.</p>
+			<p class="card-text" i18n="home.how.to.play.line4">You think you found? You can use the website to test your code without revealing the solution.</p>
+			<p class="card-text" i18n="home.how.to.play.line5">Are you sure you found? Use the magnifying glass to discover the hidden solution on the coded card. Alternatively, you can also reveal the good code on the website.</p>
+			<p class="card-text" i18n="home.how.to.play.line6">Did you find the good code? Congratulations! You have won!</p>
+			<p class="card-text" i18n="home.how.to.play.line7">Did not find the good code? Keep trying !</p>
 		  </div>
 		  <div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-dismiss="modal" i18n="homme.error.game.not.available.button.close">Close</button>
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+	<!-- Website secret -->
+	<div class="modal fade" id="modal-website-secret" tabindex="-1" role="dialog" aria-labelledby="modalWebsiteSecret" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title  i18n" id="exampleModalLabel"  i18n="home.how.to.play.button">Website secret</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body">
+			<p class="card-text" >Website secret explinations</p>
+
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
 		  </div>
 		</div>
 	  </div>
 	</div>
 
 
+	<div class="modal" tabindex="-1" role="dialog" id="verification-popup">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title">Code verification</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  <div class="embed-responsive embed-responsive-16by9">
+			  <iframe class="embed-responsive-item"  ></iframe>
+			</div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
   </body>
 </html>
