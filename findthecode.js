@@ -79,7 +79,7 @@ $( document ).ready(function() {
 		$("#selected-language").attr("src",language+".png");
 		
 		jQuery.i18n.properties({
-		path:'bundle/',
+		path:'/bundle/',
 		mode:'both',
   		name: 'Messages',
 		language: language, 
