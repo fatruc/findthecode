@@ -11,25 +11,18 @@ $( document ).ready(function() {
 	};
 	
 	
-    $("#test-the-code").click(function(){
-		/*var mycode = $("#my-code").val();
-		var solution = $("#solution").val();
-
-			
-		if(solution==mycode.toLowerCase().hashCode()){
-			$(".success").show();
-			$(".failure").hide();
-		} else {
-			$(".success").hide();
-			$(".failure").show();
-		}*/
-		var mycode = $("#my-code").val().toLowerCase().hashCode();
+	var code_validation = function(){
+		var mycode = $.trim($("#my-code").val().toLowerCase()).hashCode();
 		$('.modal').on('shown.bs.modal', function() {
 			$(this).find('iframe').attr('src','./codes/'+mycode+".html");
 		}) 
 				
 		
 		$('#verification-popup').modal();
+	}
+	
+    $("#test-the-code").click(function(){
+		code_validation();
 	});
 	
 	$("#reveal-the-code").click(function(){
@@ -70,6 +63,14 @@ $( document ).ready(function() {
 		
 	}
 	
+	$('#my-code').keypress(function(event){
+		var keycode = (event.keyCode ? event.keyCode : event.which);
+		if(keycode == '13'){
+			code_validation();
+			event.preventDefault();
+		}
+	});
+		
 
 	
 	var changeLanguage = function(language){
