@@ -14,12 +14,22 @@ $( document ).ready(function() {
 	var code_validation = function(code){
 		code = $.trim(code.toLowerCase()).hashCode();
 		console.log(code);
-		$('.modal').on('shown.bs.modal', function() {
+		$('#verification-popup').on('shown.bs.modal', function() {
 			$(this).find('iframe').attr('src','./codes/'+code+".html");
 		}) 
 				
 		
 		$('#verification-popup').modal();
+	}
+	
+	var website_secret = function(secret){
+	
+		$('#secret-popup').on('shown.bs.modal', function() {
+			$(this).find('iframe').attr('src','./secrets/'+secret+".html");
+		}) 
+				
+		
+		$('#secret-popup').modal();
 	}
 	
     $("#test-the-code").click(function(){
@@ -73,13 +83,12 @@ $( document ).ready(function() {
 	});
 		
 
-	//Haut, haut, bas, bas, gauche, droite, gauche, droite, B, A
 	var k = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65],
 	n = 0;
 	$(document).keydown(function (e) {
 		if (e.keyCode === k[n++]) {
 			if (n === k.length) {
-				code_validation("konami");
+				website_secret("konami");
 				n = 0;
 				return false;
 			}
