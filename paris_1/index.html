@@ -31,7 +31,7 @@
 		<div class="row">
 			<div class="col-sm">
 				<div class="jumbotron  top-buffer">
-					  <h1 class="display-4">PARIS#1</h1>
+					  <h1 class="display-4">PAR<span id="i">I</span>S#1</h1>
 					<a href="../index.html" class="btn btn-primary" data-dismiss="modal">&lt; <span i18n="game.button.back.text">Go back to the list of games<span></a>
 				</div>
 			</div>
@@ -90,6 +90,24 @@
 
 	</div>
 
+	<div class="modal" tabindex="-1" role="dialog" id="secret-popup">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" i18n="secret.found.title">You found a website secret !</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  <div class="embed-responsive embed-responsive-16by9">
+			  <iframe class="embed-responsive-item"  ></iframe>
+			</div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal" i18n="modal.button.close">Close</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
 	
 	
    </body>

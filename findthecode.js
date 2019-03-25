@@ -25,7 +25,7 @@ $( document ).ready(function() {
 	var website_secret = function(secret){
 	
 		$('#secret-popup').on('shown.bs.modal', function() {
-			$(this).find('iframe').attr('src','./secrets/'+secret+".html");
+			$(this).find('iframe').attr('src','/findthecode/secrets/'+secret+".html");
 		}) 
 				
 		
@@ -54,7 +54,9 @@ $( document ).ready(function() {
 		changeLanguage(language);
 	});
 	
-
+	$("#i").click(function(){
+		website_secret("paris");
+	});
 
 	var defaultLanguage = function(){
 		var language = navigator.language || navigator.userLanguage; 
