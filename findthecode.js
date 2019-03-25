@@ -1,4 +1,6 @@
 $( document ).ready(function() {
+	var contextPath="/findthecode";
+	
 	String.prototype.hashCode = function() {
 	  var hash = 0, i, chr;
 	  if (this.length === 0) return hash;
@@ -24,10 +26,8 @@ $( document ).ready(function() {
 	
 	var website_secret = function(secret){
 	
-		$('#secret-popup').on('shown.bs.modal', function() {
-			$(this).find('iframe').attr('src','/findthecode/secrets/'+secret+".html");
-		}) 
-				
+		var audio = new Audio(contextPath+'/secrets/zelda_secret_sound.mp3');
+		audio.play();				
 		
 		$('#secret-popup').modal();
 	}
@@ -100,6 +100,10 @@ $( document ).ready(function() {
 		}
 	});
 	
+	function AdjustIframeHeightOnLoad() { document.getElementById("form-iframe").style.height = document.getElementById("form-iframe").contentWindow.document.body.scrollHeight + "px"; }
+	function AdjustIframeHeight(i) { document.getElementById("form-iframe").style.height = parseInt(i) + "px"; }
+
+	
 	var changeLanguage = function(language){
 		
 		console.log("change language to: "+language);
@@ -107,7 +111,7 @@ $( document ).ready(function() {
 		$("#selected-language").attr("src",language+".png");
 		
 		jQuery.i18n.properties({
-		path:'/findthecode/bundle/',
+		path:contextPath+'/bundle/',
 		mode:'both',
   		name: 'Messages',
 		language: language, 
@@ -122,6 +126,7 @@ $( document ).ready(function() {
 	
 	initLanguage();
 	
+	$('iframe').iFrameResize( [{options}] );
 
 	
 	
