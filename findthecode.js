@@ -28,7 +28,7 @@ $( document ).ready(function() {
 	
 		var audio = new Audio(contextPath+'/secrets/zelda_secret_sound.mp3');
 		audio.play();				
-		gtag('set', { 'secret': secret });
+		ga('send', 'pageview', "secrets/"+secret+".html");
 		$('#secret-popup').modal();
 	}
 	
@@ -126,8 +126,6 @@ $( document ).ready(function() {
 	
 	initLanguage();
 	
-	$('iframe').iFrameResize( [{options}] );
-
 	
 	
 });
