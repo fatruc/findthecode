@@ -1,2 +1,5 @@
 .top-buffer { margin-top:20px; }
 iframe{width:100%}
+#virtual-keyboard{
+	display:none;
+}

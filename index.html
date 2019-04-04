@@ -34,6 +34,7 @@
 	
 	<script type="text/javascript" language="JavaScript" src="libs/jquery.i18n.properties.js"></script>
 	
+	<link rel="stylesheet" href="libs/simple-keyboard.css">
 	<script type="text/javascript" src="findthecode.js"></script>
 	
 
@@ -41,7 +42,11 @@
     <title>Find the code</title>
   </head>
   <body>
-
+<div class="footer fixed-bottom" id="virtual-keyboard">
+  <div class="simple-keyboard"></div>
+</div>
+  <script src="libs/simple-keyboard.min.js"></script>
+  <script src="src/index.js"></script>
 	<nav class="navbar navbar-dark bg-dark">
 		<a class="navbar-brand" href="#" i18n="home.nav.title">Find the code !</a>
 		
@@ -53,6 +58,9 @@
 			</button>
 			<button class="btn btn-secondary  m-2" type="button" id="dropdownMenuButton" data-toggle="modal" data-target="#modal-website-secret" i18n="home.website.secret.button">
 				Website secret ?
+			</button>
+			<button class="btn btn-secondary  m-2" type="button" id="toggle-keyboard">
+				<img src="keyboard.png"/>
 			</button>
 			<div class="dropdown m-2" id="language">
 				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
