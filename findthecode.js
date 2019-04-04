@@ -29,7 +29,7 @@ $( document ).ready(function() {
 		var audio = new Audio(contextPath+'/secrets/zelda_secret_sound.mp3');
 		audio.play();				
 		ga('send', 'pageview', "secrets/"+secret+".html");
-		$('#secret-popup').modal();
+		$('#secret-popup').modal({backdrop:"static"});
 	}
 	
     $("#test-the-code").click(function(){
