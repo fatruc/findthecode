@@ -154,7 +154,7 @@ $( document ).ready(function() {
 	  onKeyPress: button => onKeyPress(button),
 	    layout: {
     default: [
-      "1 2 3 4 5 6 7 8 9 0  {backspace} {arrowup}",
+      "1 2 3 4 5 6 7 8 9 0 {arrowup}",
       "q w e r t y u i o p {arrowleft}",
       "a s d f g h j k l {arrowdown}",
       "z x c v b n m  {arrowright}" 
