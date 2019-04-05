@@ -1,6 +1,8 @@
 .top-buffer { margin-top:20px; }
 iframe{width:100%}
-
+#virtual-keyboard{
+	display:none;
+}
 .flou {
 filter: blur(20px);
       -webkit-filter: blur(20px);
