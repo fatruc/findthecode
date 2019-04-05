@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-	var contextPath="/findthecode";
+	var contextPath="/";
 	
 	String.prototype.hashCode = function() {
 	  var hash = 0, i, chr;
@@ -127,7 +127,7 @@ $( document ).ready(function() {
 		$("#selected-language").attr("src",language+".png");
 		
 		jQuery.i18n.properties({
-		path:contextPath+'/bundle/',
+		path:'/bundle/',
 		mode:'both',
   		name: 'Messages',
 		language: language, 
