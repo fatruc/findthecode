@@ -127,7 +127,7 @@ $( document ).ready(function() {
 		$("#selected-language").attr("src",language+".png");
 		
 		jQuery.i18n.properties({
-		path:'/bundle/',
+		path:'/findthecode/bundle/',
 		mode:'both',
   		name: 'Messages',
 		language: language, 
