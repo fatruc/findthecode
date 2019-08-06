@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-	var contextPath="/";
+	var contextPath="/findthecode";
 	
 	String.prototype.hashCode = function() {
 	  var hash = 0, i, chr;
