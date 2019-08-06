@@ -1,0 +1,15 @@
+.top-buffer { margin-top:20px; }
+iframe{width:100%}
+<<<<<<< HEAD
+
+.flou {
+filter: blur(20px);
+      -webkit-filter: blur(20px);
+      -moz-filter: blur(20px);
+      -o-filter: blur(20px);
+      -ms-filter: blur(20px);
+=======
+#virtual-keyboard{
+	display:none;
+>>>>>>> 72cad8f982c7d29ddd50f97a77480dc124ba32d3
+}
